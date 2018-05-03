@@ -1,8 +1,6 @@
 {
   "verbose": false,
-  "ignore": [
-    "node_modules",
-    "log",
-    "dist"
-  ]
+  "watch": ["src/**/*.ts", ".env"],
+  "ext": "ts,js,.env",
+  "exec": "ts-node src/index.ts"
 }
