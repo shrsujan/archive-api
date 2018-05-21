@@ -4,14 +4,19 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "lint": "eslint .",
+    "build": "NODE_ENV=production run-s clean transpile",
+    "clean": "rimraf dist",
+    "lint": "tslint -c tslint.json \"src/**/*.{ts,js}\"; exit 0",
+    "lint:fix": "tslint --fix -c tslint.json \"src/**/*.ts\"; exit 0",
     "precommit": "lint-staged",
+    "format": "prettier --write --parser typescript --single-quote --print-width=120 \"src/**/*.{ts,js,json}\"",
     "start": "nodemon",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "transpile": "tsc"
   },
   "lint-staged": {
     "*.{ts,js}": [
-      "prettier --single-quote --parser typescript --print-width=120 --write \"src/**/*.{ts,js,json}\"",
+      "prettier --write --parser typescript --single-quote --print-width=120 \"src/**/*.{ts,js,json}\"",
       "tslint --fix -c tslint.json \"src/**/*.{ts.js}\"",
       "git add"
     ]
@@ -78,7 +83,7 @@
     "tslint": "^5.9.1",
     "tslint-config-prettier": "^1.12.0",
     "tslint-consistent-codestyle": "^1.13.0",
-    "types-installer": "^1.4.0",
+    "types-instal ler": "^1.4.0",
     "typescript": "^2.8.3"
   },
   "engines": {

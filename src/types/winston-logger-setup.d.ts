@@ -1,13 +1,15 @@
+declare type LogMessage = string | number | object;
+
 declare module 'winston-logger-setup' {
-  function cnsl(message: any): any;
+  function cnsl(...args: LogMessage[]): void;
 
-  function info(message: any): any;
+  function info(...args: LogMessage[]): void;
 
-  function error(message: any): any;
+  function error(...args: LogMessage[]): void;
 
-  function warn(message: any): any;
+  function warn(...args: LogMessage[]): void;
 
-  function debug(message: any): any;
+  function debug(...args: LogMessage[]): void;
 
-  function cloud(message: any): any;
+  function cloud(...args: LogMessage[]): void;
 }
