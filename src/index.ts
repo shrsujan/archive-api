@@ -15,7 +15,7 @@ const app = express();
 
 app.use(cors());
 app.use(helmet());
-app.use(morgan('dev'));
+app.use(morgan(':method :url [:status] ---- :response-time ms', { stream: log.logStream }));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 

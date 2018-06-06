@@ -1,4 +1,5 @@
 import * as log from 'winston-logger-setup';
+import { Stream } from 'stream';
 
 /**
  * Print provided message to console
@@ -39,3 +40,12 @@ export function warn(...args: LogMessage[]) {
 export function debug(...args: LogMessage[]) {
   log.debug(...args, {});
 }
+
+/**
+ * Print api call endpoints to console and log it into log/info.log file
+ */
+export const logStream = {
+  write(message: string) {
+    log.info(message.replace(/\.*(\n)$/, ''));
+  }
+};
