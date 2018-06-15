@@ -1,0 +1,13 @@
+version: '3.0'
+services: 
+  api:
+    environment: 
+      NODE_ENV: development
+      PORT: 8000
+    build:
+      context: .
+    ports:
+      - '8000:8000'
+    volumes:
+      - .:/app
+    container_name: archive-api
